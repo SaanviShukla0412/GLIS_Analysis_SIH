@@ -1,0 +1,203 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Air Quality Prediction</title>
+	<!-- Latest compiled and minified CSS -->
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+	<link rel="stylesheet" href="static\assets\css\style.css">
+	<style>
+		body{
+			background-color: #00b7038a;
+			}
+	</style>
+	
+
+
+</head>
+<body>
+
+<nav class="navbar">
+  <div class="container-fluid">
+    <div class="navbar-header">
+      <a class="navbar-brand">
+		<h2>Air Quality Prediction
+			</h2>
+		</a>
+    </div>
+    <ul class="nav navbar-nav navbar-right">
+    	<li><a href="/">Back</a></li>
+    </ul>
+  </div>
+</nav>
+	<div class="container">
+		<div class="row">
+			<div class="col-md-3"></div>
+			<div class="col-md-6">
+				<form action="/aqi_predict" method="POST">
+					<div class="row">
+						<div class="col-md-6">
+							<div class="form-group">
+							    <label for="temp">City</label>
+							    <select name="city">
+                                    <option disabled="disabled" selected="selected">Please select city</option>
+                                    <option value="Ahmedabad">Ahmedabad</option>
+                                	<option value="Aizawl">Aizawl</option>
+                                	<option value="Amaravati">Amaravati</option>
+                                	<option value="Amritsar">Amritsar</option>
+                                	<option value="Bengaluru">Bengaluru</option>
+                                	<option value="Bhopal">Bhopal</option>
+                                	<option value="Brajrajnagar">Brajrajnagar</option>
+                                	<option value="Chandigarh">Chandigarh</option>
+                                	<option value="Chennai">Chennai</option>
+                                	<option value="Coimbatore">Coimbatore</option>
+                                	<option value="Delhi">Delhi</option>
+                                	<option value="Ernakulam">Ernakulam</option>
+                                	<option value="Gurugram">Gurugram</option>
+                                	<option value="Guwahati">Guwahati</option>
+                                	<option value="Hyderabad">Hyderabad</option>
+                                	<option value="Jaipur">Jaipur</option>
+                                	<option value="Jorapokhar">Jorapokhar</option>
+                                	<option value="Kochi">Kochi</option>
+                                	<option value="Kolkata">Kolkata</option>
+                                	<option value="Lucknow">Lucknow</option>
+                                	<option value="Mumbai">Mumbai</option>
+                                	<option value="Patna">Patna</option>
+                                	<option value="Shillong">Shillong</option>
+                                	<option value="Talcher">Talcher</option>
+                                	<option value="Thiruvananthapuram">Thiruvananthapuram</option>
+                                	<option value="Visakhapatnam">Visakhapatnam</option>
+                                </select>
+							</div>
+						</div>
+      
+						<div class="col-md-6">
+							<div class="form-group">
+							    <label for="Hum">PM2.5</label>
+							    <input type="text" class="form-control" id="pm25" name="pm25" placeholder="Enter PM2.5">
+							</div>
+						</div>
+
+					</div>
+					<div class="row">
+						<div class="col-md-6">
+							<div class="form-group">
+							    <label for="temp">PM10</label>
+							    <input type="text" class="form-control" id="pm10" name="pm10" placeholder="Cloud Cover Percentage (%)">
+							</div>
+						</div>
+
+						<div class="col-md-6">
+							<div class="form-group">
+							    <label for="Hum">NO</label>
+							    <input type="text" class="form-control" id="no" name="no" placeholder="Enter Annual Rain Fall in mm">
+							</div>
+						</div>
+
+					</div>
+					<div class="row">
+						<div class="col-md-6">
+							<div class="form-group">
+							    <label for="temp">NO2</label>
+							    <input type="text" class="form-control" id="no2" name="no2" placeholder="Cloud Cover Percentage (%)">
+							</div>
+						</div>
+
+						<div class="col-md-6">
+							<div class="form-group">
+							    <label for="Hum">NOx</label>
+							    <input type="text" class="form-control" id="nox" name="nox" placeholder="Enter Annual Rain Fall in mm">
+							</div>
+						</div>
+
+					</div>
+					
+
+					<div class="row">
+						<div class="col-md-6">
+							<div class="form-group">
+							    <label for="db">NH3</label>
+							    <input type="text" class="form-control" id="nh3" name="nh3" placeholder="Jan-Feb Rainfall in mm">
+							</div>
+						</div>
+						<div class="col-md-6">
+							<div class="form-group">
+							    <label for="ap">CO</label>
+							    <input type="text" class="form-control" id="co" name="co" placeholder="March-May Rainfall in mm">
+							</div>
+						</div>
+					</div>
+
+
+					<div class="row">
+						<div class="col-md-6">
+							<div class="form-group">
+							    <label for="aa1">SO2</label>
+							    <input type="text" class="form-control" id="so2" name="so2" placeholder="June-September Rainfall in mm">
+							</div>
+						</div>
+
+						<div class="col-md-6">
+							<div class="form-group">
+							    <label for="ap">O3</label>
+							    <input type="text" class="form-control" id="o3" name="o3" placeholder="March-May Rainfall in mm">
+							</div>
+						</div>
+					</div>
+					
+					<div class="row">
+						<div class="col-md-6">
+							<div class="form-group">
+							    <label for="aa1">Benzene</label>
+							    <input type="text" class="form-control" id="benzene" name="benzene" placeholder="June-September Rainfall in mm">
+							</div>
+						</div>
+
+						<div class="col-md-6">
+							<div class="form-group">
+							    <label for="ap">Toluene</label>
+							    <input type="text" class="form-control" id="toluene" name="toluene" placeholder="March-May Rainfall in mm">
+							</div>
+						</div>
+					</div>
+					
+					<div class="row">
+						<div class="col-md-6">
+							<div class="form-group">
+							    <label for="aa1">Xylene</label>
+							    <input type="text" class="form-control" id="xylene" name="xylene" placeholder="June-September Rainfall in mm">
+							</div>
+						</div>
+
+						<div class="col-md-6">
+							<div class="form-group">
+							    <label for="ap">Date</label>
+							    <input type="date" class="form-control" id="date" name="date" placeholder="March-May Rainfall in mm">
+							</div>
+						</div>
+					</div>
+	
+
+
+					<button type="submit" class="btn btn-default" style=" text-align: center;">Predict</button>
+				</form>
+			</div>
+		</div>
+	</div>
+
+<div class="container">
+		<div class="row">
+			<div class="col-md-3"></div>
+			<div class="col-md-6">
+				<div class="p-2 my-2 border">
+						<div align="center">
+			  		<h3>{{prediction_aqi}}</h3>
+			  	</div>
+				</div>
+			</div>
+		</div>
+	</div>
+
+	<!-- Latest compiled and minified JavaScript -->
+	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script
+</body>
+</html>

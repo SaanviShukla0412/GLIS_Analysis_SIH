@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Flood Prediction</title>
+    <!-- Latest compiled and minified CSS -->
+    <link
+      rel="stylesheet"
+      href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css"
+    />
+    <link rel="stylesheet" href="static\assets\css\style.css" />
+  </head>
+  <body>
+    <nav class="navbar">
+      <div class="container-fluid">
+        <div class="navbar-header">
+          <a class="navbar-brand">
+            <h2>Flood Prediction</h2>
+          </a>
+        </div>
+        <ul class="nav navbar-nav navbar-right">
+          <li><a href="/">Back</a></li>
+        </ul>
+      </div>
+    </nav>
+
+    <div class="container">
+      <div class="row">
+        <div class="col-md-3"></div>
+        <div class="col-md-6">
+          <form action="/flood_predict" method="POST">
+            <div class="row">
+              <div class="col-md-6">
+                <div class="form-group">
+                  <label for="temp">Cloud Cover</label>
+                  <input
+                    type="text"
+                    class="form-control"
+                    id="temp"
+                    name="temp"
+                    placeholder="Cloud Cover Percentage (%)"
+                  />
+                </div>
+              </div>
+
+              <div class="col-md-6">
+                <div class="form-group">
+                  <label for="Hum">Annual Rain Fall</label>
+                  <input
+                    type="text"
+                    class="form-control"
+                    id="Hum"
+                    name="Hum"
+                    placeholder="Enter Annual Rain Fall in mm"
+                  />
+                </div>
+              </div>
+            </div>
+
+            <div class="row">
+              <div class="col-md-6">
+                <div class="form-group">
+                  <label for="db">Jan-Feb Rainfall</label>
+                  <input
+                    type="text"
+                    class="form-control"
+                    id="db"
+                    name="db"
+                    placeholder="Jan-Feb Rainfall in mm"
+                  />
+                </div>
+              </div>
+            </div>
+
+            <div class="row">
+              <div class="col-md-6">
+                <div class="form-group">
+                  <label for="ap">March-May Rainfall</label>
+                  <input
+                    type="text"
+                    class="form-control"
+                    id="ap"
+                    name="ap"
+                    placeholder="March-May Rainfall in mm"
+                  />
+                </div>
+              </div>
+
+              <div class="col-md-6">
+                <div class="form-group">
+                  <label for="aa1">June-September</label>
+                  <input
+                    type="text"
+                    class="form-control"
+                    id="aa1"
+                    name="aa1"
+                    placeholder="June-September Rainfall in mm"
+                  />
+                </div>
+              </div>
+            </div>
+
+            <button
+              type="submit"
+              class="btn btn-default"
+              style="text-align: center"
+            >
+              Predict
+            </button>
+          </form>
+        </div>
+      </div>
+    </div>
+    <div class="container">
+      <div class="row">
+        <div class="col-md-3"></div>
+        <div class="col-md-6">
+          <div class="p-2 my-2 border">
+            <div align="center">
+              <h3>{{prediction}}</h3>
+              <!--Jinja -->
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Latest compiled and minified JavaScript -->
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+  </body>
+</html>
